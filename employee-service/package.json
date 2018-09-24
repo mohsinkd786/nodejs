@@ -1,0 +1,17 @@
+{
+  "name": "employee-service",
+  "version": "1.0.0",
+  "description": "Employee Service | shall cater CRUD operations over employee entity",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "restart": "nodemon index.js"
+  },
+  "author": "mohsinkd786",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
+  }
+}
