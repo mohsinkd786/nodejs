@@ -1,30 +1,48 @@
 const express = require('express')
 const app = express()
 const parser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
+const userService = require('./services/userService');
+
 app.use(parser.json())
-
-const url = `mongodb://localhost:27017/sample_users`
-
 
 app.get('/status',(req,res) => {
     res.send('System is up');
 }).listen(4200);
 
+// fetch all users
 app.get('/users',(req,res) => {
     res.setHeader('Content-Type','application/json')
-    fetchAll((data)=>{
+    userService.fetchAll((data)=>{
         res.end(JSON.stringify(data))
     })
 });
 
-const fetchAll = (callback)=>{
-    MongoClient.connect(url, (err, client) => {
-        const conn = client.db('sample_users')
-            conn.collection('users').find({}).toArray((err,data)=>{
-                //console.log('Data Received ',data)
-                callback(data)
-            })
-        client.close()
+//fetch users by name
+app.get('/users/findByName/:name',(req,res) => {
+    res.setHeader('Content-Type','application/json')
+    let uname = req.params.name
+    userService.fetchByName(uname,(results) =>{
+        res.end(JSON.stringify(results))
     })
-}
+});
+// add a new user
+app.post('/user/add',(req,res)=>{
+    let userObj = req.body
+    res.setHeader('Content-Type','application/json')
+    userService.addUser(userObj,(err)=>{
+        if(err) res.statusCode(400).end('User Couldnt be Added,please try again later')
+        else res.end('User Added Successfully')
+    })
+})
+// update an existing user
+app.put('/user/edit',(req,res)=>{
+    let userObj = req.body
+    res.setHeader('Content-Type','application/json')
+    userService.editUser(userObj,(err,result)=>{
+        if(err) res.statusCode(400).end('User Couldnt be Added,please try again later')
+        else{
+                res.end(JSON.stringify({ message:'User Modified' ,response : result }))
+                //res.redirect('/users')
+        }
+    })
+})
