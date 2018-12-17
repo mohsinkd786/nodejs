@@ -1,0 +1,13 @@
+#create a node project
+cd project-name
+npm init
+#continue to press enter and finish
+# install dependencies
+npm install express body-parser nodemon --save
+#update package.json file
+#add start task
+ "start": "node index.js"
+# start making changes in your index.js file this shall work as the entry point for your application
+# start / run the application 
+npm start
+# stopping use ctrl ^c
