@@ -4,8 +4,8 @@ const parser = require('body-parser');
 const userService = require('./services/userService');
 
 server.use(parser.urlencoded({ extended:false }));
-server.use(parser.json());
-
+//server.use(parser.json());
+server.use(express.json());
 
 //GET
 //Status service
@@ -33,7 +33,32 @@ server.get('/fetchbyName/:name',(req,res)=>{
     console.log('Fetch User by Name called ',name);
     res.send(userService._byName(name));
 });
-
+// POST
+// ADD User
+server.post('/user/add',(req,res)=>{
+   /* let user ={
+        "id": req.body.id,
+        "name": body.name,
+        "email": body.email,
+        "phone": body.phone
+    }; */
+    console.log(req.body);
+    userService._add(req.body);
+    res.send(userService._all());
+});
+// DELETE
+// Delete an existing User
+server.delete('/user/delete',(req,res)=>{
+    userService._delete();
+    res.send('User has been Deleted Successfully');
+});
+// PUT
+// Update an existing User
+server.put('/user/edit',(req,res)=>{
+    let index = users.indexOf(req.body);
+    users[index] = req.body;
+    res.send('User has been modified');
+});
 //expose the listener port
 const port = 3001;
 server.listen(port,()=>{

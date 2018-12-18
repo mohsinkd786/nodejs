@@ -33,17 +33,21 @@ const fetchUserbyName = (name) =>{
 }
 // add a User
 const addUser = (user)=>{
-    //users
+    users.push(user);
 }
 
 // delete a User
 const deleteUserbyId = (id)=>{
     //id
 }
+const deleteUser = ()=>{
+    users.pop();
+}
 module.exports={
     _all : fetchUsers,
     _byId : fetchUserbyId,
     _byName : fetchUserbyName,
     _delbyId : deleteUserbyId,
-    _add : addUser
+    _add : addUser,
+    _delete: deleteUser
 }
