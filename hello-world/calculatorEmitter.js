@@ -75,3 +75,6 @@ emitter.emit('calculate',{
     first: parseInt(process.argv[6]),
     next: parseInt(process.argv[7])
 })
+
+// command format
+//node helloEmitter.js 1 Pete Sanders DIV 12 3
