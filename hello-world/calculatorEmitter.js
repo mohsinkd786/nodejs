@@ -77,4 +77,4 @@ emitter.emit('calculate',{
 })
 
 // command format
-//node helloEmitter.js 1 Pete Sanders DIV 12 3
+//node calculatorEmitter.js 1 Pete Sanders DIV 12 3
