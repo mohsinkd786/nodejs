@@ -1,6 +1,7 @@
 const events = require('events')
 const emitter = new events.EventEmitter()
 const calc = require('./Calculator')
+const args = require('yargs').argv;
 
 const toString = (msg)=>{
     return msg.id +' ,'+msg.fname+' ,'+msg.lname
@@ -31,17 +32,17 @@ const toJSONL =(msg)=>{
 emitter.addListener('toJSONListener',toJSONL)
 
 emitter.emit('toJSONListener',[
-    process.argv[2],
-    process.argv[3],
-    process.argv[4]
+    args.id,
+    args.fname,
+    args.lname
 ])
 
 emitter.removeListener('toJSONListener', toJSONL)
 
 emitter.emit('toJSONListener',[
-    process.argv[2],
-    process.argv[3],
-    process.argv[4]
+    args.id,
+    args.fname,
+    args.lname
 ])
 const lightsOnListener = (e)=>{
     console.log(e)
@@ -71,10 +72,11 @@ const _calculate = (_data)=>{
 emitter.addListener('calculate',_calculate)
 
 emitter.emit('calculate',{
-    action : process.argv[5],
-    first: parseInt(process.argv[6]),
-    next: parseInt(process.argv[7])
+    action : args.action,
+    first: parseInt(args.firstNum),
+    next: parseInt(args.nextNum)
 })
 
-// command format
-//node calculatorEmitter.js 1 Pete Sanders DIV 12 3
+// install yargs module
+// npm install yargs
+// node calculatorEmitter.js --id=1 --fname=JOHNNY --lname=ENGLISH --action=SUM --firstNum=10 --nextNum=12
