@@ -1,19 +1,13 @@
-const _sum = (_first,_next)=>{
-    console.log(_first +','+_next)
-    return _first + _next
+class Calculator{
+    add(a,b){
+        return a + b
+    }
+    subtract(a,b){
+        return a - b
+    }
+    multiply(a,b){
+        return a * b
+    }
 }
-const _diff = (_first,_next)=>{
-    return _first - _next
-}
-const _mul = (_first,_next)=>{
-    return _first * _next
-}
-const _div = (_first,_next)=>{
-    return _first / _next
-}
-module.exports={
-    _sum : _sum,
-    _diff,
-    _mul,
-    _div
-}
+
+module.exports.Calculator = Calculator

@@ -1,0 +1,20 @@
+{
+  "name": "user-service-mysql",
+  "version": "1.0.0",
+  "description": "User Service CRUD solutioning with MySQL",
+  "main": "app.js",
+  "scripts": {
+    "start" : "node app.js",
+    "restart" : "nodemon app.js"
+  },
+  "author": "mohsinkd786",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

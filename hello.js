@@ -1,7 +1,5 @@
-const sayHello = (msg)=>{
-    console.log(msg)
+var hello = function message(message){
+	console.log('Message Called '+message);
 }
 
-
-
-sayHello('Hello how r u')
+hello('Hello world');
