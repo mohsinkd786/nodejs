@@ -1,0 +1,20 @@
+{
+  "name": "express-router-user-service",
+  "version": "1.0.0",
+  "description": "Express Router based User Service",
+  "main": "server.js",
+  "scripts": {
+    "start" : "node server.js",
+    "restart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohsin Khursheed",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
