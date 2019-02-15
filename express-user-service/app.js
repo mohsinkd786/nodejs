@@ -53,6 +53,15 @@ server.post('/users/add',(rq,rs)=>{
         data : userData
     })
 })
+// edit an existing user
+server.put('/users/edit',(rq,rs)=>{
+    rs.setHeader('content-type','application/json')
+    userData = service.update(userData,rq.body)
+    rs.status(202).send({
+        message: 'User has been modified successfully',
+        data : userData
+    })
+})
 // delete a user by id
 server.delete('/users/:id',(rq,rs)=>{
     rs.setHeader('content-type','application/json')

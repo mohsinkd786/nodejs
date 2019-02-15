@@ -16,6 +16,13 @@ const addUser = (users,_user)=>{
 const removeUser = (users,id)=>{
     return users.filter(u=>u.id != id)
 }
+const updateUser = (users,_user)=>{
+    userFound = users.find(u=>u.id == _user.id)
+    if(userFound != null){
+        users[users.indexOf(userFound)] =  _user
+    }
+    return users
+}
 const buildUser =(users, _user)=>{
     return{
         id: users.length + 1,
@@ -29,5 +36,6 @@ module.exports={
     bySalaryGreater : fetchUsersWithSalaryGreater,
     byId : fetchUserById,
     add : addUser,
-    delete : removeUser
+    delete : removeUser,
+    update : updateUser
 }
