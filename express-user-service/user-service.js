@@ -8,7 +8,7 @@ const fetchUserById =(users,uId)=>{
     return users.find(u=> u.id == uId)
 }
 const addUser = (users,_user)=>{
-    users[users.length + 1] = buildUser(users,_user)
+    users[getMaxId(users)] = buildUser(users,_user)
     return users.filter(Boolean)
 }
 const removeUser = (users,id)=>{
@@ -23,11 +23,15 @@ const updateUser = (users,_user)=>{
 }
 const buildUser =(users, _user)=>{
     return{
-        id: users.length + 1,
+        id: getMaxId(users),
         name: _user.name,
         email: _user.email,
         salary: _user.salary
     }
+}
+// const get Max user id
+const getMaxId = (users)=>{
+    return Math.max.apply(null,users.map(u=>u.id))
 }
 module.exports={
     bySalaryInBetween : fetchUsersWithSalaryInBetween,
