@@ -1,3 +1,4 @@
+// this shall work as our data store
 const _messages =[
     "HELLO",
     "HI",

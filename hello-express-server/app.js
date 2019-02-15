@@ -1,7 +1,8 @@
 const express = require('express') // install express >> npm install express --save (shall save the dependency in package.json)
+const server = express()
+
 const data = require('./data')  // our data file used in place of a persistence store
 const _compute = require('./calculator')._compute
-const server = express()
 const PORT = 5600
 
 server.get('/status',(req,res)=>{

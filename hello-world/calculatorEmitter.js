@@ -1,6 +1,7 @@
 const events = require('events')
 const emitter = new events.EventEmitter()
 const calc = require('./Calculator')
+
 const args = require('yargs').argv;
 
 const toString = (msg)=>{

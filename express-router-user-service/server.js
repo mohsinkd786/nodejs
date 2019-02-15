@@ -23,7 +23,7 @@ server.get('/message/:message',(rq,rs)=>{
 })
 // restricted access endpoint
 server.get('/unauthorize',(rq,rs)=>{
-    rs.status(403).send({
+    rs.status(401).send({
         status : 'ERROR',
         errorMessage: 'Please specify valid credentials'
     })
