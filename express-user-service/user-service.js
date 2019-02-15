@@ -8,10 +8,8 @@ const fetchUserById =(users,uId)=>{
     return users.find(u=> u.id == uId)
 }
 const addUser = (users,_user)=>{
-
     users[users.length + 1] = buildUser(users,_user)
-    //users = users.push(uObj)
-    return users
+    return users.filter(Boolean)
 }
 const removeUser = (users,id)=>{
     return users.filter(u=>u.id != id)
