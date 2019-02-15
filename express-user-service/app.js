@@ -1,6 +1,6 @@
 // folks import / downloading this project
 // need to just run below command
-// >> npm install shall 
+// >> npm install 
 // shall load all the necessary dependencies
 const express = require('express')
 const server = express()
