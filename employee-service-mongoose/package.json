@@ -1,0 +1,20 @@
+{
+  "name": "employee-service-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "restart": "nodemon server.js"
+  },
+  "author": "Mohsin Khursheed",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
