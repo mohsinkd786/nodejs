@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm start",
-    "test": "nyc mocha",
-    "code-coverage": "nyc --reporter=html --reporter=text mocha"
+    "test": "nyc --reporter=text mocha --exit",
+    "code-coverage": "nyc --reporter=html --reporter=text mocha --exit"
   },
   "author": "Mohsin Khursheed",
   "license": "ISC",
