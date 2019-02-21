@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>15/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,13 +35,13 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>15/18</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -72,71 +72,83 @@
 27
 28
 29
-30</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+30
+31
+32
+33
+34</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >const express = require('express')</span>
-<span class="cstat-no" title="statement not covered" >const services = express()</span>
-<span class="cstat-no" title="statement not covered" >const server = express.Router()</span>
-<span class="cstat-no" title="statement not covered" >const calc = require('./calculator')</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express')
+const services = express()
+const server = express.Router()
+const calc = require('./calculator')
 &nbsp;
 // status
-<span class="cstat-no" title="statement not covered" >server.get('/status',(rq,rs)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >    rs.send('Hello')</span>
+server.get('/status',(rq,rs)=&gt;{
+    rs.send('Hello')
 })
 // SUM
-<span class="cstat-no" title="statement not covered" >server.get('/add/:a/:b',(rq,rs)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >    rs.send(calc._add(parseInt(rq.params.a),parseInt(rq.params.b)).toString())</span>
+server.get('/add/:a/:b',(rq,rs)=&gt;{
+    rs.send(calc._add(parseInt(rq.params.a),parseInt(rq.params.b)).toString())
 })
 // DIFF
-<span class="cstat-no" title="statement not covered" >server.get('/diff/:a/:b',(rq,rs)=&gt;{</span>
+server.get('/diff/:a/:b',(rq,rs)=&gt;{
 <span class="cstat-no" title="statement not covered" >    rs.send(calc._diff(parseInt(rq.params.a),parseInt(rq.params.b)).toString())</span>
 })
 // MUL
-<span class="cstat-no" title="statement not covered" >server.get('/mul/:a/:b',(rq,rs)=&gt;{</span>
+server.get('/mul/:a/:b',(rq,rs)=&gt;{
 <span class="cstat-no" title="statement not covered" >    rs.send(calc._mul(parseInt(rq.params.a),parseInt(rq.params.b)).toString())</span>
 })
 // DIV
-<span class="cstat-no" title="statement not covered" >server.get('/div/:a/:b',(rq,rs)=&gt;{</span>
+server.get('/div/:a/:b',(rq,rs)=&gt;{
 <span class="cstat-no" title="statement not covered" >    rs.send(calc._div(parseInt(rq.params.a),parseInt(rq.params.b)).toString())</span>
 })
 &nbsp;
-<span class="cstat-no" title="statement not covered" >services.use('/calculator',server)</span>
-<span class="cstat-no" title="statement not covered" >services.listen(6631,()=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >    console.log(`Server Started at 6631`)</span>
-})</pre></td></tr>
+services.use('/calculator',server)
+services.listen(6631,()=&gt;{
+    console.log(`Server Started at 6631`)
+})
+&nbsp;
+module.exports= {
+    services
+}</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 13:25:24 GMT+0530 (India Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 21 2019 14:46:53 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

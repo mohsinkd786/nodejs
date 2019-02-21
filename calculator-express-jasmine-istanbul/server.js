@@ -28,3 +28,7 @@ services.use('/calculator',server)
 services.listen(6631,()=>{
     console.log(`Server Started at 6631`)
 })
+
+module.exports= {
+    services
+}
