@@ -1,0 +1,18 @@
+{
+  "name": "calculator-jasmine-istanbul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "test-coverage": "istanbul cover --include-all-sources spec/calculatorSpec.js && istanbul check-coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-istanbul": "^5.1.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.3.1",
+    "jasmine-node": "^1.16.2"
+  }
+}

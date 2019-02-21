@@ -14,6 +14,19 @@ apis.get('/',(rq,rs)=>{
         }
     })
 })
+// add a project
+apis.post('/add',(rq,rs)=>{
+    dao._add(rq.body,(err)=>{
+        if(err){
+            rs.status(500).send({
+                error: "Unable to load data",
+                trace: err
+            })
+        }else{
+            rs.status(200).json("Project added successfully")
+        }
+    })
+})
 // get employees by id
 apis.get('/:id/employees',(rq,rs)=>{
     dao._allProjectEmployees(parseInt(rq.params.id),(err,data)=>{

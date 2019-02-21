@@ -62,9 +62,30 @@ const deleteById = (eId,callback)=>{
         conn.close()
     })
 }
+// aggregation of employee names
+const getEmployeeNames = (callback)=>{
+    MongoClient.connect(_url,(err,conn)=>{
+        let employees = conn.db(_db).collection('employees')
+        employees.aggregate([
+            {
+                $match :{}
+            },
+            {
+                $project:{
+                    _id: 0,
+                    name : 1
+                }
+            }
+        ]).toArray((err,emps)=>{
+            callback(err,emps)    
+        })
+    })
+}
+
 module.exports={
     _all : getEmployees,
     _add : addEmployee,
     _updateById : updateEmployee,
-    _delById : deleteById
+    _delById : deleteById,
+    _Names : getEmployeeNames
 }

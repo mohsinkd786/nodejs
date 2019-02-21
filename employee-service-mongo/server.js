@@ -13,7 +13,7 @@ server.get('/status',(rq,rs)=>{
 })
 
 // set the organization routes
-server.use('/organization',routes)
+server.use('/employees',routes)
 // listening port
 server.listen(PORT,()=>{
     console.log(`Server Started at ${PORT}`)

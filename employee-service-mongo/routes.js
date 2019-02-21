@@ -3,7 +3,7 @@ const routes = express.Router()
 const dao = require('./db/dao')
 
 // get all employees
-routes.get('/employees',(rq,rs)=>{
+routes.get('/',(rq,rs)=>{
     dao._all((err,data)=>{
         if(err){
             rs.status(500).send({
@@ -16,7 +16,7 @@ routes.get('/employees',(rq,rs)=>{
 })
 
 // add a new employee
-routes.post('/employees/add',(rq,rs)=>{
+routes.post('/add',(rq,rs)=>{
     dao._add(rq.body,(err,data)=>{
         if(err){
             rs.status(500).send({
@@ -29,7 +29,7 @@ routes.post('/employees/add',(rq,rs)=>{
 })
 
 // edit an employee by id
-routes.put('/employees/edit',(rq,rs)=>{
+routes.put('/edit',(rq,rs)=>{
     dao._updateById(rq.body,(err,data)=>{
         if(err){
             rs.status(500).send({
@@ -42,7 +42,7 @@ routes.put('/employees/edit',(rq,rs)=>{
 })
 
 // delete an employee
-routes.delete('/employees/delete/:id',(rq,rs)=>{
+routes.delete('/delete/:id',(rq,rs)=>{
     dao._delById(parseInt(rq.params.id),(err)=>{
         if(err){
             rs.status(500).send({
@@ -57,8 +57,16 @@ routes.delete('/employees/delete/:id',(rq,rs)=>{
 })
 
 // find all employees for a project
-routes.post('/employees/find/project/:id',(rq,rs)=>{
+routes.post('/find/project/:id',(rq,rs)=>{
 
+})
+
+routes.get('/names',(rq,rs)=>{
+    dao._Names((err,names)=>{
+        rs.send({
+            names
+        })
+    })
 })
 module.exports={
     routes

@@ -1,0 +1,24 @@
+{
+  "name": "calculator-express-jasmine-istanbul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculator.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.3.1",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-node": "^1.16.2",
+    "request": "^2.88.0"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "start": "node server.js",
+    "code-coverage": "istanbul cover --include-all-sources spec/specs.js && istanbul check-coverage"
+  },
+  "author": "Mohsin Khursheed",
+  "license": "ISC"
+}
