@@ -1,0 +1,24 @@
+{
+  "name": "calculator-express-mocha-chai-istanbul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm start",
+    "test": "nyc mocha",
+    "code-coverage": "nyc --reporter=html --reporter=text mocha"
+  },
+  "author": "Mohsin Khursheed",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.0.0",
+    "nyc": "^13.3.0"
+  }
+}
