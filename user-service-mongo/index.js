@@ -5,6 +5,13 @@ const userService = require('./services/userService');
 
 app.use(parser.json())
 
+// enable CORS 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.get('/status',(req,res) => {
     res.send('System is up');
 }).listen(4200);
