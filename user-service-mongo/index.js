@@ -53,3 +53,12 @@ app.put('/user/edit',(req,res)=>{
         }
     })
 })
+
+app.get('/user/find/id/max',(rq,rs)=>{
+    userService.getLastId((id,err)=>{
+        if(err) rs.statusCode(400).json('Unable to process your request,please try again later')
+        else{
+                rs.json({maxId:id})
+        }
+    })
+})

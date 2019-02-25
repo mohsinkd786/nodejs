@@ -37,9 +37,21 @@ const editUser = (user,callback)=>{
             client.close()
     })
 }
+const getLastId = (callback)=>{
+    MongoClient.connect(url,(err,client)=>{
+        client.db(dbName).collection('users').find({}).sort({_id:-1}).limit(1).toArray((err,data)=>{
+            if(data.length>0){
+                callback(data[0]._id,err)
+            }else{
+                callback(0,err)
+            }
+        })
+    })
+}
 module.exports = {
     fetchAll : fetchAll,
     fetchByName : fetchByName,
     addUser : addUser,
-    editUser :editUser
+    editUser :editUser,
+    getLastId
 }
