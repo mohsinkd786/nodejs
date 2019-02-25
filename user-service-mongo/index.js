@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/status',(req,res) => {
-    res.send('System is up');
+    res.json('System is up');
 }).listen(4200);
 
 // fetch all users
@@ -29,7 +29,7 @@ app.get('/users/findByName/:name',(req,res) => {
     res.setHeader('Content-Type','application/json')
     let uname = req.params.name
     userService.fetchByName(uname,(results) =>{
-        res.end(JSON.stringify(results))
+        res.json(JSON.stringify(results))
     })
 });
 // add a new user
@@ -38,7 +38,7 @@ app.post('/user/add',(req,res)=>{
     res.setHeader('Content-Type','application/json')
     userService.addUser(userObj,(err)=>{
         if(err) res.statusCode(400).end('User Couldnt be Added,please try again later')
-        else res.end('User Added Successfully')
+        else res.json('User Added Successfully')
     })
 })
 // update an existing user
@@ -46,9 +46,9 @@ app.put('/user/edit',(req,res)=>{
     let userObj = req.body
     res.setHeader('Content-Type','application/json')
     userService.editUser(userObj,(err,result)=>{
-        if(err) res.statusCode(400).end('User Couldnt be Added,please try again later')
+        if(err) res.statusCode(400).json('User Couldnt be Added,please try again later')
         else{
-                res.end(JSON.stringify({ message:'User Modified' ,response : result }))
+                res.json(JSON.stringify({ message:'User Modified' ,response : result }))
                 //res.redirect('/users')
         }
     })
