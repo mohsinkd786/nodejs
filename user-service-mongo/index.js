@@ -8,13 +8,16 @@ app.use(parser.json())
 // enable CORS 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods","GET,POST,PUT,DELETE")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
 app.get('/status',(req,res) => {
     res.json('System is up');
-}).listen(4200);
+}).listen(4200,()=>{
+    'Server Started'
+});
 
 // fetch all users
 app.get('/users',(req,res) => {

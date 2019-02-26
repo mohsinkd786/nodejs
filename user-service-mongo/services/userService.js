@@ -31,7 +31,7 @@ const editUser = (user,callback)=>{
     MongoClient.connect(url,(err,client)=>{
         const collection = client.db(dbName).collection('users')
         collection.updateOne({ _id : user._id }
-            , { $set: { name : user.name } },(err,response)=>{
+            , { $set: user  },(err,response)=>{
                 callback(err,response)
             })
             client.close()
