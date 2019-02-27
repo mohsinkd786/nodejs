@@ -9,6 +9,13 @@ const bodyParser = require('body-parser')
 // apply the body parser
 
 app.use(bodyParser.json())
+// enable CORS 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods","GET,POST,PUT,DELETE")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // route
 app.get('/status',(req,res) => {
@@ -34,8 +41,9 @@ app.get('/user',(req,res) =>{
 });
 // adding a new user
 app.post('/user/add',(req,res) =>{
+    console.log(req.body)
     if(!req.body.name){
-        res.statusCode(400),send('Name attribute is expected');
+        res.status(400).json('Name attribute is expected');
         return;
     }
     const user ={
@@ -44,7 +52,7 @@ app.post('/user/add',(req,res) =>{
     };
     userObj.addUser(user);
     const users = userObj.fetchAll(); 
-    res.send(users);
+    res.json(users);
 });
 
 // environment variable
@@ -53,6 +61,6 @@ let port;
 if(!process.argv){
     port = process.argv[2];
 }else{
-    port = process.env.port || 3000;
+    port = process.env.port || 3010;
 }
 app.listen(port,()=> console.log(`Listening on port ${port}`));
