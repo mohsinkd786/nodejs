@@ -12,8 +12,8 @@ app.use(cors)
 app.get('/status',(req,res) => {
     res.json('System is up');
 })
-app.listen(4200,()=>{
-    'Server Started'
+app.listen(4101,()=>{
+    console.log('Server Started 4101')
 });
 
 // fetch all users
