@@ -11,21 +11,23 @@ describe('User Mongo Service ',()=>{
         .get('/users')
         .end((err,rs)=>{
             userService.fetchAll((data)=>{
-                expect(rs.body).to.equal(data)
+                expect(JSON.stringify(rs.body)).to.equal(JSON.stringify(data))
                 done()
             })       
         })
     })
     it('Add User into Mongo',(done)=>{
         const userObj={
-            _id: 100,
+            _id: 1001,
             name: 'Test User'
         }
         chai.request(app)
-        .post('/user/add',userObj)
+        .post('/user/add')
+        .set('content-type','application/json')
+        .send(userObj)
         .end((err,rs)=>{
             userService.fetchByName(userObj.name,(data)=>{
-                expect(userObj).to.equal(data)
+                expect(JSON.stringify(userObj)).to.equal(JSON.stringify(data))
                 done()
             })       
         })
