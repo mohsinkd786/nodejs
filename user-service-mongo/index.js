@@ -11,7 +11,8 @@ app.use(cors)
 
 app.get('/status',(req,res) => {
     res.json('System is up');
-}).listen(4200,()=>{
+})
+app.listen(4200,()=>{
     'Server Started'
 });
 
