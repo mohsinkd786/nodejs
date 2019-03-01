@@ -1,21 +1,17 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
 const User = require('./users');
 const userObj = new User();
 const bodyParser = require('body-parser')
 
 // latest express version doesn't have body parser by default
-// npm install body-parser --save
+// npm install body-parser express cors 
 // apply the body parser
 
 app.use(bodyParser.json())
-// enable CORS 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods","GET,POST,PUT,DELETE")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors())
 
 // route
 app.get('/status',(req,res) => {
@@ -30,7 +26,7 @@ app.get('/users',(req,res) =>{
 app.get('/user/:id',(req,res) =>{
     let id = req.params.id
     let user = JSON.stringify(userObj.fetchById(id));
-    if(!user) return res.statusCode(404).send('The user wasn\'t found');
+    if(!user) return res.status(404).send('The user wasn\'t found');
     else res.send(user);
 });
 // query params
