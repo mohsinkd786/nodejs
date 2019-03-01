@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "restart": "nodemon index.js"
+    "restart": "nodemon index.js",
+    "test": "nyc --reporter=text mocha --exit",
+    "code-coverage": "nyc --reporter=html --reporter=text mocha --exit"
   },
   "keywords": [
     "mongodb",
@@ -17,8 +19,15 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.3",
     "mongodb": "^3.1.6",
     "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0"
   }
 }
