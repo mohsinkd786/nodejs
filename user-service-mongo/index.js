@@ -7,7 +7,7 @@ const userService = require('./services/userService');
 app.use(parser.json())
 
 // enable CORS 
-app.use(cors)
+app.use(cors())
 
 app.get('/status',(req,res) => {
     res.json('System is up');
